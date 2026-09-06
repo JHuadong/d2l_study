@@ -5,8 +5,8 @@ import pandas as pd
 from d2l import torch
 
 if __name__ == '__main__':
-    os.makedirs(os.path.join('..', 'data'), exist_ok=True)
-    data_file = os.path.join('..', 'data', 'question2_2_1th.csv')
+    os.makedirs(os.path.join('../..', 'data'), exist_ok=True)
+    data_file = os.path.join('../..', 'data', 'question2_2_1th.csv')
     with open(data_file, 'w') as f:
         f.write('id,MSSubClass,MSZoning,LotFrontage,NumRooms,Alley,Price\n')
         f.write('1,60,RL,65,NA,Pave,127500\n')
