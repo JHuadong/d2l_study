@@ -327,11 +327,13 @@ class Animator:
         display.display(self.fig)
         display.clear_output(wait=True)
 
-def train_ch3(net, train_iter, test_iter, loss, num_epochs, updater):
+def train_ch3(net, train_iter, test_iter, loss, num_epochs, updater, y_lim=None):
     """训练模型（定义见第3章）
 
     Defined in :numref:`sec_softmax_scratch`"""
-    animator = Animator(xlabel='epoch', xlim=[1, num_epochs], ylim=[0.3, 0.9],
+    if y_lim is None:
+        y_lim = [0.0, 1.0]
+    animator = Animator(xlabel='epoch', xlim=[1, num_epochs], ylim=y_lim,
                         legend=['train loss', 'train acc', 'test acc'])
     for epoch in range(num_epochs):
         train_metrics = train_epoch_ch3(net, train_iter, loss, updater)
